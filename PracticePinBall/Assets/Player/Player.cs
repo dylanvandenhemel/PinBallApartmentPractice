@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
         if(pActions.PlayerActions.PaddleLeft.ReadValue<float>() != 0 && LeftPaddle.rotation.z <= 0.3)
         {
             LeftPaddle.Rotate(0, 0, 1 * Time.deltaTime * flickSpeed);
-
         }
         else if(pActions.PlayerActions.PaddleLeft.ReadValue<float>() == 0 && LeftPaddle.rotation.z >= -0.3)
         {
