@@ -13,7 +13,7 @@ public class Ball : MonoBehaviour
     private void Start()
     {
         ballStart = transform.position;
-        flick = new Vector3(0, 1000, 0);
+        flick = new Vector3(0, 200, 0);
     }
 
     private void OnEnable()
@@ -34,10 +34,19 @@ public class Ball : MonoBehaviour
             transform.position = ballStart;
         }
         
-        if(other.CompareTag("Paddle"))
+        if(other.CompareTag("PaddleL"))
         {
             //Make Paddle work only on press not hold
-            if (pActions.PlayerActions.PaddleRight.ReadValue<float>() != 0 && flickActive == false)
+            if (pActions.PlayerActions.PaddleLeft.ReadValue<float>() != 0)
+            {
+                transform.GetComponent<Rigidbody>().AddForce(flick);
+            }
+
+        }
+        if (other.CompareTag("PaddleR"))
+        {
+            //Make Paddle work only on press not hold
+            if (pActions.PlayerActions.PaddleRight.ReadValue<float>() != 0)
             {
                 transform.GetComponent<Rigidbody>().AddForce(flick);
             }
