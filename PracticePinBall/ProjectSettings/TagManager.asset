@@ -8,6 +8,7 @@ TagManager:
   - Ball
   - PaddleL
   - PaddleR
+  - BouncePad
   layers:
   - Default
   - TransparentFX
